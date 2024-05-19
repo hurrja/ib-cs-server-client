@@ -4,7 +4,7 @@ public class Application
   {
     this.starter = starter;
     this.role = role;
-    mainWindow = new MainWindow (this);
+    applicationWindow = new ApplicationWindow (this);
   }
 
   public Role getRole ()
@@ -12,7 +12,7 @@ public class Application
     return role;
   }
   
-  private MainWindow mainWindow;
+  private ApplicationWindow applicationWindow;
   private Starter starter;
   private Role role;
 }

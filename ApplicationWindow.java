@@ -3,9 +3,9 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainWindow extends JFrame
+public class ApplicationWindow extends JFrame
 {
-  public MainWindow (Application application)
+  public ApplicationWindow (Application application)
   {
     super (application.getRole ().name ());
     this.application = application;
