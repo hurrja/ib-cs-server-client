@@ -32,6 +32,31 @@ public class Application
     roleWindow.showRole (role);
   }
   
+  public Role getRole ()
+  {
+    return role;
+  }
+  
+  public void run ()
+  {
+    roleWindow.setVisible (false);
+    mainWindow = new MainWindow (this);
+    
+    if (role == Role.Server)
+      runAsServer ();
+    else
+      runAsClient ();
+  }
+  
+  private void runAsServer ()
+  {
+  }
+
+  private void runAsClient ()
+  {
+  }
+
   private Role role;
   private RoleWindow roleWindow; 
+  private MainWindow mainWindow; 
 }
