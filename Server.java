@@ -4,4 +4,8 @@ public class Server extends Application
   {
     super (starter, Role.Server);
   }
+
+  public void run ()
+  {
+  }
 }

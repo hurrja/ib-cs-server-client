@@ -1,4 +1,4 @@
-public class Application
+public abstract class Application
 {
   Application (Starter starter, Role role)
   {
@@ -11,6 +11,8 @@ public class Application
   {
     return role;
   }
+  
+  public abstract void run ();
   
   private ApplicationWindow applicationWindow;
   private Starter starter;

@@ -4,4 +4,8 @@ public class Client extends Application
   {
     super (starter, Role.Client);
   }
+
+  public void run ()
+  {
+  }
 }
