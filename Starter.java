@@ -37,26 +37,15 @@ public class Starter
     return role;
   }
   
-  public void run ()
+  public void runApplication ()
   {
     roleWindow.setVisible (false);
-    mainWindow = new MainWindow (this);
-    
     if (role == Role.Server)
-      runAsServer ();
+      new Server (this);
     else
-      runAsClient ();
+      new Client (this);
   }
   
-  private void runAsServer ()
-  {
-  }
-
-  private void runAsClient ()
-  {
-  }
-
   private Role role;
   private RoleWindow roleWindow; 
-  private MainWindow mainWindow; 
 }

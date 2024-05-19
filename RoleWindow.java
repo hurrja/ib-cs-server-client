@@ -20,7 +20,7 @@ public class RoleWindow extends JFrame
     ipTextField.setColumns (IP_ADDRESS_MAX_LENGTH);
     add (ipTextField);
     JButton okButton = new JButton ("OK");
-    okButton.addActionListener ((ActionEvent e) -> starter.run ());
+    okButton.addActionListener ((ActionEvent e) -> starter.runApplication ());
     add (okButton);
     JButton cancelButton = new JButton ("Cancel");
     cancelButton.addActionListener ((ActionEvent e) -> System.exit (0));

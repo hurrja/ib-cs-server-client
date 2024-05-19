@@ -5,10 +5,10 @@ import java.awt.event.ActionListener;
 
 public class MainWindow extends JFrame
 {
-  public MainWindow (Starter starter)
+  public MainWindow (Application application)
   {
-    super (starter.getRole ().name ());
-    this.starter = starter;
+    super (application.getRole ().name ());
+    this.application = application;
     setLayout (new FlowLayout ());
 
     JButton quitButton = new JButton ("Quit");
@@ -19,5 +19,5 @@ public class MainWindow extends JFrame
     setVisible (true);
   }
 
-  private Starter starter;
+  private Application application;
 }
