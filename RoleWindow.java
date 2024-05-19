@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,6 +9,7 @@ public class RoleWindow extends JFrame
   {
     super ("Select program role");
     this.application = application;
+    setLayout (new FlowLayout ());
 
     roleComboBox = new JComboBox<> (Role.values ());
     add (roleComboBox);
