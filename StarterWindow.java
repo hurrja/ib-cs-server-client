@@ -3,9 +3,9 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class RoleWindow extends JFrame
+public class StarterWindow extends JFrame
 {
-  public RoleWindow (Starter starter)
+  public StarterWindow (Starter starter)
   {
     super ("Select program role");
     this.starter = starter;

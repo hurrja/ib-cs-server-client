@@ -4,7 +4,7 @@ public class Starter
 {
   public Starter ()
   {
-    roleWindow = new RoleWindow (this);
+    roleWindow = new StarterWindow (this);
     role = Role.Server;
     roleWindow.showRole (role);
   }
@@ -47,5 +47,5 @@ public class Starter
   }
   
   private Role role;
-  private RoleWindow roleWindow; 
+  private StarterWindow roleWindow; 
 }
