@@ -46,6 +46,11 @@ public class StarterWindow extends JFrame
     }
   }
   
+  public String getServerIP ()
+  {
+    return ipTextField.getText ();
+  }
+
   private Starter starter;
   private JComboBox<Role> roleComboBox;
   private JTextField ipTextField;

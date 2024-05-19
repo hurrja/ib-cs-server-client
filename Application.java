@@ -17,4 +17,5 @@ public abstract class Application
   private ApplicationWindow applicationWindow;
   private Starter starter;
   private Role role;
+  final int SERVER_PORT = 50500;
 }

@@ -40,7 +40,8 @@ public class Starter
   public void runApplication ()
   {
     roleWindow.setVisible (false);
-    Application application = role == Role.Server ? new Server (this) : new Client (this);
+    Application application =
+      role == Role.Server ? new Server (this) : new Client (this, roleWindow.getServerIP ());
     application.run ();
   }
   
