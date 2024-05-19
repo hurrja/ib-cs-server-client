@@ -21,6 +21,6 @@ public class Main
   {
     // use a lambda expression to define a method invoked
     // later (by event dispatcher)
-    SwingUtilities.invokeLater (() -> new Application ());
+    SwingUtilities.invokeLater (() -> new Starter ());
   }
 }

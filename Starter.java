@@ -1,8 +1,8 @@
 import java.net.InetAddress;
 
-public class Application
+public class Starter
 {
-  public Application ()
+  public Starter ()
   {
     roleWindow = new RoleWindow (this);
     role = Role.Server;
