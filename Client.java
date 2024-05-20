@@ -1,5 +1,7 @@
 import java.net.Socket;
 import javax.swing.SwingUtilities;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 public class Client extends Application
 {
@@ -13,7 +15,9 @@ public class Client extends Application
   {
     try
     {
-      socket = new Socket (serverIP, SERVER_PORT);
+      Socket socket = new Socket (serverIP, SERVER_PORT);
+      serverInputStream = new ObjectInputStream (socket.getInputStream ());
+      serverOutputStream = new ObjectOutputStream (socket.getOutputStream ());
     }
     catch (Exception e)
     {
@@ -22,6 +26,7 @@ public class Client extends Application
     }
   }
   
-  protected Socket socket;
+  protected ObjectInputStream serverInputStream;
+  protected ObjectOutputStream serverOutputStream;
   protected String serverIP;
 }
