@@ -43,8 +43,16 @@ public class Server extends Application
       System.out.println ("unable to accept connections, exception [ " + e + " ]");
       System.exit (1);
     }
+    if (curNumClients < NUM_CLIENTS)
+      acceptClient ();
+    else
+      readyToSend ();
   }
   
+  private void readyToSend ()
+  {
+  }
+
   ServerSocket serverSocket;
   final int NUM_CLIENTS = 2;
   int curNumClients;
