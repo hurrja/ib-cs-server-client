@@ -25,6 +25,7 @@ public class Server extends Application
       System.out.println ("unable to open server socket, exception [ " + e + " ]");
       System.exit (1);
     }
+    deactivateSend ();
     acceptClient ();
   }
 
@@ -65,7 +66,7 @@ public class Server extends Application
   private void readyToSend ()
   {
     setStatusText ("ready to send data to client [ " + curClient + " ]");
-    applicationWindow.setSendEnabled (true);
+    activateSend ();
   }
 
   ServerSocket serverSocket;

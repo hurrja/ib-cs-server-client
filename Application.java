@@ -20,7 +20,17 @@ public abstract class Application
     applicationWindow.setStatusText (txt);
   }
     
-  protected ApplicationWindow applicationWindow;
+  protected void activateSend ()
+  {
+    applicationWindow.setSendEnabled (true);
+  }
+
+  protected void deactivateSend ()
+  {
+    applicationWindow.setSendEnabled (false);
+  }
+  
+  private ApplicationWindow applicationWindow;
   private Starter starter;
   private Role role;
   final int SERVER_PORT = 50500;
