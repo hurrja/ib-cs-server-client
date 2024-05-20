@@ -13,13 +13,14 @@ public abstract class Application
   }
   
   public abstract void run ();
+  public abstract void send ();
   
   protected void setStatusText (String txt)
   {
     applicationWindow.setStatusText (txt);
   }
     
-  private ApplicationWindow applicationWindow;
+  protected ApplicationWindow applicationWindow;
   private Starter starter;
   private Role role;
   final int SERVER_PORT = 50500;

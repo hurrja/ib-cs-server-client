@@ -26,6 +26,10 @@ public class Client extends Application
     }
   }
   
+  public void send ()
+  {
+  }
+
   protected ObjectInputStream serverInputStream;
   protected ObjectOutputStream serverOutputStream;
   protected String serverIP;

@@ -28,6 +28,10 @@ public class Server extends Application
     acceptClient ();
   }
 
+  public void send ()
+  {
+  }
+  
   private void acceptClient ()
   {
     assert (curNumClients < NUM_CLIENTS);
@@ -52,11 +56,16 @@ public class Server extends Application
     if (curNumClients < NUM_CLIENTS)
       acceptClient ();
     else
+    {
+      curClient = 0;
       readyToSend ();
+    }
   }
   
   private void readyToSend ()
   {
+    setStatusText ("ready to send data to client [ " + curClient + " ]");
+    applicationWindow.setSendEnabled (true);
   }
 
   ServerSocket serverSocket;
@@ -64,4 +73,5 @@ public class Server extends Application
   int curNumClients;
   ObjectInputStream[] clientInputStreams;
   ObjectOutputStream[] clientOutputStreams;
+  int curClient;
 }
