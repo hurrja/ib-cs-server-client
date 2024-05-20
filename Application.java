@@ -14,6 +14,11 @@ public abstract class Application
   
   public abstract void run ();
   
+  protected void setStatusText (String txt)
+  {
+    applicationWindow.setStatusText (txt);
+  }
+    
   private ApplicationWindow applicationWindow;
   private Starter starter;
   private Role role;

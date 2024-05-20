@@ -11,6 +11,9 @@ public class ApplicationWindow extends JFrame
     this.application = application;
     setLayout (new FlowLayout ());
 
+    statusLabel = new JLabel ();
+    add (statusLabel);
+    
     JButton quitButton = new JButton ("Quit");
     quitButton.addActionListener ((ActionEvent e) -> System.exit (0));
     add (quitButton);
@@ -19,5 +22,11 @@ public class ApplicationWindow extends JFrame
     setVisible (true);
   }
 
+  public void setStatusText (String txt)
+  {
+    statusLabel.setText (txt);
+  }
+
   private Application application;
+  JLabel statusLabel;
 }
