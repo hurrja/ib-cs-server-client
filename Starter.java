@@ -4,9 +4,9 @@ public class Starter
 {
   public Starter ()
   {
-    roleWindow = new StarterWindow (this);
+    starterWindow = new StarterWindow (this);
     role = Role.Server;
-    roleWindow.showRole (role);
+    starterWindow.showRole (role);
   }
 
   public String getMyIP ()
@@ -29,7 +29,7 @@ public class Starter
   public void setRole (Role role)
   {
     this.role = role;
-    roleWindow.showRole (role);
+    starterWindow.showRole (role);
   }
   
   public Role getRole ()
@@ -39,12 +39,12 @@ public class Starter
   
   public void runApplication ()
   {
-    roleWindow.setVisible (false);
+    starterWindow.setVisible (false);
     Application application =
-      role == Role.Server ? new Server (this) : new Client (this, roleWindow.getServerIP ());
+      role == Role.Server ? new Server (this) : new Client (this, starterWindow.getServerIP ());
     application.run ();
   }
   
   private Role role;
-  private StarterWindow roleWindow; 
+  private StarterWindow starterWindow; 
 }
