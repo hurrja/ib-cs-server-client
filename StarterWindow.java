@@ -40,10 +40,7 @@ public class StarterWindow extends JFrame
       ipTextField.setEditable (false);
     }
     else
-    {
-      ipTextField.setText ("");
       ipTextField.setEditable (true);
-    }
   }
   
   public String getServerIP ()
