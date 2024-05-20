@@ -1,5 +1,6 @@
 import java.net.ServerSocket;
 import java.net.Socket;
+import javax.swing.SwingUtilities;
 
 public class Server extends Application
 {
@@ -27,7 +28,21 @@ public class Server extends Application
   private void acceptClient ()
   {
     assert (curNumClients < NUM_CLIENTS);
-    setStatusText ("accepting");
+    setStatusText ("accepting [ " + (NUM_CLIENTS - curNumClients) + " ] clients");
+    SwingUtilities.invokeLater (() -> accept ());
+  }
+  
+  private void accept ()
+  {
+    try
+    {
+      clientSockets [curNumClients++] = serverSocket.accept ();
+    }
+    catch (Exception e)
+    {
+      System.out.println ("unable to accept connections, exception [ " + e + " ]");
+      System.exit (1);
+    }
   }
   
   ServerSocket serverSocket;
