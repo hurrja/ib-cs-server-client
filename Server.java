@@ -31,6 +31,23 @@ public class Server extends Application
 
   public void send ()
   {
+    try
+    {
+      clientOutputStreams [curClient].writeObject (new Data (0));
+    }
+    catch (Exception e)
+    {
+      System.out.println ("unable to send data, exception [ " + e + " ]");
+      System.exit (1);
+    }
+
+    setStatusText ("sent data to client [ " + curClient + " ], waiting for reply");
+    deactivateSend ();
+    SwingUtilities.invokeLater (() -> receive ());
+  }
+  
+  public void receive ()
+  {
   }
   
   private void acceptClient ()

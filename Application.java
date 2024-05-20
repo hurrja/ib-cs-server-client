@@ -14,6 +14,7 @@ public abstract class Application
   
   public abstract void run ();
   public abstract void send ();
+  public abstract void receive ();
   
   protected void setStatusText (String txt)
   {
