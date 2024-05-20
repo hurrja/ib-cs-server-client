@@ -1,13 +1,16 @@
 import java.net.ServerSocket;
 import java.net.Socket;
 import javax.swing.SwingUtilities;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 public class Server extends Application
 {
   public Server (Starter starter)
   {
     super (starter, Role.Server);
-    clientSockets = new Socket [NUM_CLIENTS];
+    clientInputStreams = new ObjectInputStream [NUM_CLIENTS];
+    clientOutputStreams = new ObjectOutputStream [NUM_CLIENTS];
     curNumClients = 0;
   }
 
@@ -36,7 +39,10 @@ public class Server extends Application
   {
     try
     {
-      clientSockets [curNumClients++] = serverSocket.accept ();
+      Socket clientSocket = serverSocket.accept ();
+      clientInputStreams [curNumClients] = new ObjectInputStream (clientSocket.getInputStream ());
+      clientOutputStreams [curNumClients] = new ObjectOutputStream (clientSocket.getOutputStream ());
+      curNumClients++;
     }
     catch (Exception e)
     {
@@ -56,5 +62,6 @@ public class Server extends Application
   ServerSocket serverSocket;
   final int NUM_CLIENTS = 2;
   int curNumClients;
-  Socket[] clientSockets;
+  ObjectInputStream[] clientInputStreams;
+  ObjectOutputStream[] clientOutputStreams;
 }
