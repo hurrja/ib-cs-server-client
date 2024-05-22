@@ -30,6 +30,10 @@ public class Client extends Application
   {
   }
 
+  public void receive ()
+  {
+  }
+  
   protected ObjectInputStream serverInputStream;
   protected ObjectOutputStream serverOutputStream;
   protected String serverIP;

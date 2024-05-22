@@ -48,6 +48,19 @@ public class Server extends Application
   
   public void receive ()
   {
+    try
+    {
+      Data data = (Data) clientInputStreams [curClient].readObject ();
+    }
+    catch (Exception e)
+    {
+      System.out.println ("unable to send data, exception [ " + e + " ]");
+      System.exit (1);
+    }
+    setStatusText ("received data from client [ " + curClient + " ]");
+    curClient++;
+    curClient %= NUM_CLIENTS;
+    readyToSend ();
   }
   
   private void acceptClient ()
