@@ -54,7 +54,7 @@ public class Server extends Application
     }
     catch (Exception e)
     {
-      System.out.println ("unable to send data, exception [ " + e + " ]");
+      System.out.println ("unable to receive data, exception [ " + e + " ]");
       System.exit (1);
     }
     setStatusText ("received data from client [ " + curClient + " ]");
