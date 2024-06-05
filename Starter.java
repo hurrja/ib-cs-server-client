@@ -45,8 +45,9 @@ public class Starter
   public void runApplication ()
   {
     starterWindow.setVisible (false);
+    String serverIP = starterWindow.getServerIP ();
     Application application =
-      role == Role.Server ? new Server (this) : new Client (this, starterWindow.getServerIP ());
+      role == Role.Server ? new Server (this, serverIP) : new Client (this, serverIP);
     application.run ();
   }
   
