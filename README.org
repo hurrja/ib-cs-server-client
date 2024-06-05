@@ -46,7 +46,32 @@
       6. When the server receives a reply from the current client, it
          sets the next client as its current client, and returns to
          step 3.
+** Blocking network operations, GUI and =invokeLater()=
+   Network operations, such as the server accepting (listening for) a
+   connection taken by a client, are blocking: the program will not
+   resume until the operation is completed. In a GUI program, this has
+   two significant implications:
+   1. None of the GUI components are responsive during blocking. In
+      this application, this is indicated by inactivating the buttons.
+   2. If something - such as a piece of text, or the activity of a
+      button - is changed in the GUI just prior to the blocking
+      operation, this change will become visible to the user /after/
+      the blocking operation is completed. This is because the GUI
+      will show the new text only when the GUI (Swing) resumes its
+      operation.
 
+   To modify a GUI just prior to blocking, the GUI must be modified
+   and allowed to show this modification, before the blocking
+   operation. The use of =SwingUtilities.invokeLater()= makes this
+   possible:
+   1. Modify the GUI.
+   2. Call =invokeLater()=, passing the blocking operation as the parameter.
+   3. Control will return to GUI (Swing event dispatcher). The GUI
+      will first show the modification of the GUI, and then execute
+      the blocking operation from the event queue.
+
+   An example of this can be found in method =acceptClient()= of class
+   =Server.=
 
 ** Installation in IDEA
    To install the application in IDEA, do the following:
