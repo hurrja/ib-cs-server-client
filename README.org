@@ -4,7 +4,8 @@
    It serves multiple purposes:
    1. To show how a server can accept connections, and how clients can
       take a connection to the server.
-   2. To show how data can be passed between the server and the clients.
+   2. To show how data can be passed between the server and the
+      clients using serialization.
    3. To demonstrate how the server can interact with multiple clients
       in a round robin manner.
    4. To show how server and client functionality can be achieved in a
@@ -49,11 +50,10 @@
 
 ** Running multiple instances in Intellij IDEA
    To run the server and the clients in Intellij IDEA, you need to
-   enable parallel running by selecting, depending on your version of
-   IDEA, either
-   - =Run -> Edit configurations ->   Allow parallel run=, or
-   - =Run -> Edit Configurations -> Modify Options -> Allow Multiple
-     Instances=.
+   enable multiple instances, depending on your version of IDEA,
+   either
+   - =Run -> Edit configurations -> Allow parallel run=, or
+   - =Run -> Edit Configurations -> Modify Options -> Allow Multiple Instances=.
 
 ** Blocking network operations, GUI and =invokeLater()=
    Network operations, such as the server accepting (listening for) a
