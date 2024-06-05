@@ -13,6 +13,13 @@ public class Client extends Application
 
   public void run ()
   {
+    setStatusText ("connecting to server at " + serverIP);
+    deactivateSend ();
+    SwingUtilities.invokeLater (() -> connect ());
+  }
+  
+  public void connect ()
+  {
     try
     {
       Socket socket = new Socket (serverIP, SERVER_PORT);
@@ -24,6 +31,9 @@ public class Client extends Application
       System.out.println ("unable to open socket, exception [ " + e + " ]");
       System.exit (1);
     }
+
+    setStatusText ("made connection, waiting for request");
+    SwingUtilities.invokeLater (() -> receive ());
   }
   
   public void send ()
