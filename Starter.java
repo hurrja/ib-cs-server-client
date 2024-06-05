@@ -16,7 +16,7 @@
 
 import java.net.InetAddress;
 
-public class Starter
+public final class Starter
 {
   public Starter ()
   {

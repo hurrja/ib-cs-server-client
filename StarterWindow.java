@@ -19,7 +19,7 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class StarterWindow extends JFrame
+public final class StarterWindow extends JFrame
 {
   public StarterWindow (Starter starter)
   {

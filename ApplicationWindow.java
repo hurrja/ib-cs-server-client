@@ -20,7 +20,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Dimension;
 
-public class ApplicationWindow extends JFrame
+public final class ApplicationWindow extends JFrame
 {
   public ApplicationWindow (Application application)
   {
