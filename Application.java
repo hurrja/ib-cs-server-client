@@ -21,14 +21,14 @@ public abstract class Application
     applicationWindow.setStatusText (txt);
   }
     
-  protected void activateSend ()
+  protected void activateButtons ()
   {
-    applicationWindow.setSendEnabled (true);
+    applicationWindow.setButtonsEnabled (true);
   }
 
-  protected void deactivateSend ()
+  protected void deactivateButtons ()
   {
-    applicationWindow.setSendEnabled (false);
+    applicationWindow.setButtonsEnabled (false);
   }
   
   private ApplicationWindow applicationWindow;

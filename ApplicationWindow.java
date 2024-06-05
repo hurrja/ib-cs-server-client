@@ -20,7 +20,7 @@ public class ApplicationWindow extends JFrame
     sendButton.addActionListener ((ActionEvent e) -> application.send ());
     add (sendButton);
 
-    JButton quitButton = new JButton ("Quit");
+    quitButton = new JButton ("Quit");
     quitButton.addActionListener ((ActionEvent e) -> System.exit (0));
     add (quitButton);
     
@@ -28,9 +28,10 @@ public class ApplicationWindow extends JFrame
     setVisible (true);
   }
 
-  public void setSendEnabled (boolean enabled)
+  public void setButtonsEnabled (boolean enabled)
   {
     sendButton.setEnabled (enabled);
+    quitButton.setEnabled (enabled);
   }
 
   public void setStatusText (String txt)
@@ -39,6 +40,6 @@ public class ApplicationWindow extends JFrame
   }
 
   private Application application;
-  private JButton sendButton;
+  private JButton sendButton, quitButton;
   private JLabel statusLabel;
 }

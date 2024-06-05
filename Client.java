@@ -14,7 +14,7 @@ public class Client extends Application
   public void run ()
   {
     setStatusText ("connecting to server at " + serverIP);
-    deactivateSend ();
+    deactivateButtons ();
     SwingUtilities.invokeLater (() -> connect ());
   }
   
@@ -48,7 +48,7 @@ public class Client extends Application
     }
 
     setStatusText ("sent reply to server, waiting for more requests");
-    deactivateSend ();
+    deactivateButtons ();
     SwingUtilities.invokeLater (() -> receive ());
   }
 
@@ -65,7 +65,7 @@ public class Client extends Application
       System.exit (1);
     }
     setStatusText ("received request from server, ready to reply");
-    activateSend ();
+    activateButtons ();
   }
   
   protected String serverIP;

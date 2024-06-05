@@ -25,7 +25,7 @@ public class Server extends Application
       System.out.println ("unable to open server socket, exception [ " + e + " ]");
       System.exit (1);
     }
-    deactivateSend ();
+    deactivateButtons ();
     acceptClient ();
   }
 
@@ -44,7 +44,7 @@ public class Server extends Application
     }
 
     setStatusText ("sent data to client [ " + curClient + " ], waiting for reply");
-    deactivateSend ();
+    deactivateButtons ();
     SwingUtilities.invokeLater (() -> receive ());
   }
   
@@ -98,7 +98,7 @@ public class Server extends Application
   private void readyToSend ()
   {
     setStatusText ("ready to send data to client [ " + curClient + " ]");
-    activateSend ();
+    activateButtons ();
   }
 
   private String myIP;
