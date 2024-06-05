@@ -46,6 +46,15 @@
       6. When the server receives a reply from the current client, it
          sets the next client as its current client, and returns to
          step 3.
+
+** Running multiple instances in Intellij IDEA
+   To run the server and the clients in Intellij IDEA, you need to
+   enable parallel running by selecting, depending on your version of
+   IDEA, either
+   - =Run -> Edit configurations ->   Allow parallel run=, or
+   - =Run -> Edit Configurations -> Modify Options -> Allow Multiple
+     Instances=.
+
 ** Blocking network operations, GUI and =invokeLater()=
    Network operations, such as the server accepting (listening for) a
    connection taken by a client, are blocking: the program will not
@@ -57,7 +66,7 @@
       button - is changed in the GUI just prior to the blocking
       operation, this change will become visible to the user /after/
       the blocking operation is completed. This is because the GUI
-      will show the new text only when the GUI (Swing) resumes its
+      will show the GUI change only when the GUI (Swing) resumes its
       operation.
 
    To modify a GUI just prior to blocking, the GUI must be modified
