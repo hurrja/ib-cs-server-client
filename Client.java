@@ -22,9 +22,7 @@ public class Client extends Application
   {
     try
     {
-      Socket socket = new Socket (serverIP, SERVER_PORT);
-      serverInputStream = new ObjectInputStream (socket.getInputStream ());
-      serverOutputStream = new ObjectOutputStream (socket.getOutputStream ());
+      socket = new Socket (serverIP, SERVER_PORT);
     }
     catch (Exception e)
     {
@@ -40,6 +38,7 @@ public class Client extends Application
   {
     try
     {
+      ObjectOutputStream serverOutputStream = new ObjectOutputStream (socket.getOutputStream ());
       serverOutputStream.writeObject (new Data (1));
     }
     catch (Exception e)
@@ -57,6 +56,7 @@ public class Client extends Application
   {
     try
     {
+      ObjectInputStream serverInputStream = new ObjectInputStream (socket.getInputStream ());
       Data data = (Data) serverInputStream.readObject ();
     }
     catch (Exception e)
@@ -68,7 +68,6 @@ public class Client extends Application
     activateSend ();
   }
   
-  protected ObjectInputStream serverInputStream;
-  protected ObjectOutputStream serverOutputStream;
   protected String serverIP;
+  private Socket socket;
 }
