@@ -1,0 +1,76 @@
+* Server-client networking example with a GUI
+** The purpose of this repository
+   This repository contains an example of a server-client application.
+   It serves multiple purposes:
+   1. To show how a server can accept connections, and how clients can
+      take a connection to the server.
+   2. To show how data can be passed between the server and the clients.
+   3. To demonstrate how the server can interact with multiple clients
+      in a round robin manner.
+   4. To show how server and client functionality can be achieved in a
+      program with a GUI.
+
+** Running the server and the clients
+   The application works as follows:
+   1. First a startup window opens, and the user has to select whether
+      the program is run as the server or the client. The first
+      instance should be run as the server. The following instances
+      should be run as clients.
+   2. In the startup window the user has the possibility to specify
+      the IP address of the server. For the server instance, the
+      default address is obtained from the network configuration of
+      the computer. To run the application locally, in only one
+      computer, you should specify 127.0.0.1 as the IP address of the
+      server. This is also the default server IP address for the
+      client instances.
+   3. Once the server has been started, it will wait for =NUM_CLIENTS=
+      (default 2) clients to connect to it. The server will be
+      listening for incoming connections at port =SERVER_PORT=
+      (default 50500), and the clients will automatically connect to
+      the correct port.
+   4. After =NUM_CLIENTS= have connected to the server, they will
+      engage in a round robin data exchange of requests and replies as
+      follows:
+      1. The clients wait for data request from the server. During
+         this time, their user interfaces are inactive (no buttons can
+         be pressed).
+      2. The server sets the first client to be its current client.
+      3. By pressing the send button in the server window, the server
+         sends a data request to the current client, and then waits
+         for a reply. While waiting, the user interface is inactive.
+      4. Upon reading the data request from the server, the user
+         interface of the current client becomes active, providing the
+         user with the possibility to send a reply to the server.
+      5. When user pressed send in the client window, a reply is sent
+         to the server. The client then waits for the another request.
+      6. When the server receives a reply from the current client, it
+         sets the next client as its current client, and returns to
+         step 3.
+
+
+** Installation in IDEA
+   To install the application in IDEA, do the following:
+   1. Clone the repository.
+   2. Right click on class =Main=.
+   3. Select =Run Main.main()=
+   You are now able to make changes to the project and run it again.
+
+** Alternative installation method
+   1. Clone repository.
+   2. Run =ant= default target (builds and runs the application).
+   
+** License
+   Copyright (C) 2024 Jarmo Hurri
+
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <https://www.gnu.org/licenses/>.
