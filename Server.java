@@ -6,9 +6,10 @@ import java.io.ObjectOutputStream;
 
 public class Server extends Application
 {
-  public Server (Starter starter)
+  public Server (Starter starter, String myIP)
   {
     super (starter, Role.Server);
+    this.myIP = myIP;
     clientInputStreams = new ObjectInputStream [NUM_CLIENTS];
     clientOutputStreams = new ObjectOutputStream [NUM_CLIENTS];
     curNumClients = 0;
@@ -66,7 +67,7 @@ public class Server extends Application
   private void acceptClient ()
   {
     assert (curNumClients < NUM_CLIENTS);
-    setStatusText ("accepting [ " + (NUM_CLIENTS - curNumClients) + " ] clients");
+    setStatusText ("accepting [ " + (NUM_CLIENTS - curNumClients) + " ] clients at " + myIP);
     SwingUtilities.invokeLater (() -> accept ());
   }
   
@@ -99,10 +100,11 @@ public class Server extends Application
     activateSend ();
   }
 
-  ServerSocket serverSocket;
-  final int NUM_CLIENTS = 2;
-  int curNumClients;
-  ObjectInputStream[] clientInputStreams;
-  ObjectOutputStream[] clientOutputStreams;
-  int curClient;
+  private String myIP;
+  private ServerSocket serverSocket;
+  private final int NUM_CLIENTS = 2;
+  private int curNumClients;
+  private ObjectInputStream[] clientInputStreams;
+  private ObjectOutputStream[] clientOutputStreams;
+  private int curClient;
 }
