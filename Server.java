@@ -10,8 +10,7 @@ public class Server extends Application
   {
     super (starter, Role.Server);
     this.myIP = myIP;
-    clientInputStreams = new ObjectInputStream [NUM_CLIENTS];
-    clientOutputStreams = new ObjectOutputStream [NUM_CLIENTS];
+    clientSockets = new Socket [NUM_CLIENTS];
     curNumClients = 0;
   }
 
@@ -34,7 +33,9 @@ public class Server extends Application
   {
     try
     {
-      clientOutputStreams [curClient].writeObject (new Data (0));
+      ObjectOutputStream clientOutputStream =
+        new ObjectOutputStream (clientSockets [curClient].getOutputStream ());
+      clientOutputStream.writeObject (new Data (0));
     }
     catch (Exception e)
     {
@@ -51,7 +52,9 @@ public class Server extends Application
   {
     try
     {
-      Data data = (Data) clientInputStreams [curClient].readObject ();
+      ObjectInputStream clientInputStream =
+        new ObjectInputStream (clientSockets [curClient].getInputStream ());
+      Data data = (Data) clientInputStream.readObject ();
     }
     catch (Exception e)
     {
@@ -75,9 +78,7 @@ public class Server extends Application
   {
     try
     {
-      Socket clientSocket = serverSocket.accept ();
-      clientInputStreams [curNumClients] = new ObjectInputStream (clientSocket.getInputStream ());
-      clientOutputStreams [curNumClients] = new ObjectOutputStream (clientSocket.getOutputStream ());
+      clientSockets [curNumClients] = serverSocket.accept ();
       curNumClients++;
     }
     catch (Exception e)
@@ -104,7 +105,6 @@ public class Server extends Application
   private ServerSocket serverSocket;
   private final int NUM_CLIENTS = 2;
   private int curNumClients;
-  private ObjectInputStream[] clientInputStreams;
-  private ObjectOutputStream[] clientOutputStreams;
+  private Socket[] clientSockets;
   private int curClient;
 }
