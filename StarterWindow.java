@@ -34,13 +34,7 @@ public class StarterWindow extends JFrame
   public void showRole (Role role)
   {
     roleComboBox.setSelectedItem (role);
-    if (role == Role.Server)
-    {
-      ipTextField.setText (starter.getMyIP ());
-      ipTextField.setEditable (false);
-    }
-    else
-      ipTextField.setEditable (true);
+    ipTextField.setText (role == Role.Server ? starter.getMyIP () : starter.getLocalIP ());
   }
   
   public String getServerIP ()

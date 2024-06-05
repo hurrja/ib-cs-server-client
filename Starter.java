@@ -26,6 +26,11 @@ public class Starter
     return myIP;
   }
 
+  public String getLocalIP ()
+  {
+    return "127.0.0.1";
+  }
+
   public void setRole (Role role)
   {
     this.role = role;
